@@ -9,6 +9,12 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({extended:true}));
 
+const UsuarioRoutes = require('./routes/usuario');
+
+app.use('/Usuario',UsuarioRoutes);
+
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
 let puerto=8080;
 // Establece vínculo entre la conexión del servidor y la BD
