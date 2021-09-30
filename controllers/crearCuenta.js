@@ -13,7 +13,7 @@ exports.postAgregarUsuario = (req, res)=>{
     */
  
     usuario.create({
-        correo: "xmuse85@gmail.com",
+        correo: req.body.CorreoElectronico,
         tipoUsuario: "admin",
         nombre: "Liam",
         fechaNacimiento: "2001-07-12",
