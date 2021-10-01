@@ -31,3 +31,22 @@ exports.postAgregarUsuario = (req, res)=>{
         res.send("Nombre de usuario ya existente");
     }); 
 };
+
+//Para mandar el correo a la app
+exports.postVerUsuario = (req,res)=>{
+    usuario.findOne({
+        where: {
+            correo: req.body.CorreoElectronico
+        }
+    })
+    .then(registro=>{
+        var data=[];
+        data.push(registro.dataValues);
+        console.log(data)
+        if(registro.length == 0){
+            res.send('Correo no válido')
+        }else{
+            res.send(data)
+        }
+    }).catch(error => console.log(error))
+};
