@@ -13,17 +13,18 @@ exports.postAgregarUsuario = (req, res)=>{
     */
  
     usuario.create({
-        correo: req.body.CorreoElectronico,
+        correo: req.body.usuario.CorreoElectronico,
         tipoUsuario: "admin",
-        nombre: "Liam",
+        nombre: req.body.usuario.nombre,
         fechaNacimiento: "2001-07-12",
-        genero: "M",
+        genero: "F",
         pais: "Mexico",
-        contrasena: "rick",
+        contrasena: req.body.usuario.contrasena,
         datosPago: "muchos",
         historialDonaciones: "2015-08-09"
     }).then(resultado=>{
         console.log("Registro exitoso")
+        res.send("Registro Exitoso")
     //res.redirect("/jugador/confirmacion")
     })
     .catch(error=>{
