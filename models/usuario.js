@@ -31,10 +31,6 @@ const Usuario = (sequelize) =>{
             type: Sequelize.STRING(50),
             allowNull: false
         },
-        datosPago:{
-            type: Sequelize.STRING(50),
-            allowNull: false
-        },
         historialDonaciones:{
             type: Sequelize.STRING(50),
             allowNull: false
