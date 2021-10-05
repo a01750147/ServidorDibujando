@@ -10,8 +10,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 const UsuarioRoutes = require('./routes/usuario');
+const sesionRoutes = require("./routes/sesion");
 
 app.use('/Usuario',UsuarioRoutes);
+app.use('/Sesion', sesionRoutes); 
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
