@@ -3,23 +3,27 @@ const path = require('path');
 const sesion = require('../util/database').models.usuario;
 const Sequelize = require('sequelize');
  
+/*exports.postBuscarUsuario = (req, res) => {
+    // Para accedeer al json de sesionUsuario
+    console.log(req.body.sesionUsuario.correoElectronico);  
+    console.log(req.body.sesionUsuario.contrasena); 
+};*/ 
+
 exports.postBuscarUsuario = (req,res)=>{
-    sesion.findOne({
+    sesion.findAll({
     where: {
-        //contrasena:req.body.contrasena,
-        correo: req.body.CorreoElectronico
+        contrasena:req.body.sesionUsuario.contrasena,
+        correo: req.body.sesionUsuario.correoElectronico 
       }
     })
     .then(registros=>{
-        //console.log(registros)
-        //localStorage.setItem('correo', req.body.CorreoElectronico)
         var data=[];
         data.push(registros.dataValues); 
         console.log(data)       
         if (registros.length == 0){
-            res.send("Usuario no válido")
+            res.send("Lo sentimos: Usuario no válido")
         }else{
-            res.send("Usuario válido")
+            res.send("Bienvenido: Usuario válido")
         }
     }).catch(error => console.log(error))
 };
