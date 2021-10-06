@@ -15,12 +15,8 @@ const Proyectos = (sequelize) =>{
             type: Sequelize.STRING(50),
             allowNull: false
         },
-        fechaInicio:{
-            type: Sequelize.DATE,
-            allowNull: false
-        },
-        fechaFinal:{
-            type: Sequelize.DATE,
+        descripProyecto:{
+            type: Sequelize.STRING,
             allowNull: false
         }
     })
