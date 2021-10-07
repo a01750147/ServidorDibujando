@@ -16,24 +16,38 @@ exports.perfilUsuario = (req,res)=>{
             where: { 
                 usuarioCorreo: req.body.CorreoElectronico
             }
-        }).then(donaciones =>{
-            var data=[];
-            data.push(donaciones.dataValues);
-            console.log(data)
-            console.log(registro)
-            if(registro == null){
-                res.send('Correo no válido')
-            }else{
-                res.send({
-                    nombre: registro.nombre,
-                    historial: registro.historial,
-                    donaciones: data
-                })
-            }
+        })
+        console.log(registro)
+        if(registro == null){
+            res.send('Correo no válido')
+        }else{
+            res.send({
+                nombre: registro.nombre,
+                historial: registro.historial,
+            })
+        }
         }).catch(error =>{
             console.log(error)
             res.send(error)
         })
+};
+
+exports.perfilDonaciones = (req,res)=>{
+    donacion.findAll({
+        where: { 
+            usuarioCorreo: req.body.CorreoElectronico
+        }
+    }).then(donaciones =>{
+        if(donaciones.length == 0){
+            res.send('Correo no válido')
+        }else{
+            var data=[];
+            donaciones.forEach(donacion => {
+                data.push(donacion.dataValues);
+            });
+            console.log(data)
+            res.send(data)
+        }
     }).catch(error =>{
         console.log(error)
         res.send(error)
