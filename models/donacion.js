@@ -16,7 +16,7 @@ const Donacion = (sequelize) =>{
             allowNull: false
         },
         fechaDonacion:{
-            type: Sequelize.DATE,
+            type: Sequelize.DATEONLY,
             allowNull: false
         }
     })

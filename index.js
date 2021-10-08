@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 
 let puerto=8080;
 // Establece vínculo entre la conexión del servidor y la BD
-sequelize.sync({force:false})
+sequelize.sync({force:true})
     .then(resultado=>{
         console.log("Conexión exitosa");
         // Lanza el servidor para escuchar peticiones

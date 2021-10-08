@@ -24,6 +24,7 @@ exports.perfilUsuario = (req,res)=>{
             res.send({
                 nombre: registro.nombre,
                 historial: registro.historial,
+                usuarioCorreo: registro.correo
             })
         }
         }).catch(error =>{
