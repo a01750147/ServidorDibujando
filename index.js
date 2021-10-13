@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 const UsuarioRoutes = require('./routes/usuario');
 const sesionRoutes = require("./routes/sesion");
 const PerfilUsuarioRoutes = require("./routes/crearPerfilUsuario")
+const ProyectosRoutes = require("./routes/proyectos")
 
 app.use('/Usuario',UsuarioRoutes);
 app.use('/Sesion', sesionRoutes); 
 app.use('/crearPerfilUsuario', PerfilUsuarioRoutes);
+app.use('/proyectos', ProyectosRoutes);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
