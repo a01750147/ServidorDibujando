@@ -21,7 +21,7 @@ exports.postBuscarUsuario = (req,res)=>{
         data.push(registros.dataValues); 
         console.log(data)       
         if (registros.length == 0){
-            res.send("Lo sentimos: Usuario no válido")
+            res.send("Lo sentimos: Usuario o contraseña no válidos")
         }else{
             res.send("Bienvenido: Usuario válido")
         }
