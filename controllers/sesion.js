@@ -26,7 +26,8 @@ exports.postBuscarUsuario = (req,res)=>{
             res.send("Lo sentimos: Usuario o contraseña no válidos")
         }else{
             console.log(data[0].contrasena)
-            if(bcrypt.compareSync(String(req.body.sesionUsuario.contrasena),String(data[0].contrasena))){
+            if(bcrypt.compareSync(String(req.body.sesionUsuario.contrasena),String(data[0].contrasena)) ||
+            !bcrypt.compare(String(req.body.sesionUsuario.contrasena), "null")){
                 res.send("Bienvenido: Usuario válido")
             }else{
                 res.send("Lo sentimos: Usuario o contraseña no válidos")
