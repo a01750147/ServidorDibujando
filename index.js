@@ -13,11 +13,13 @@ const UsuarioRoutes = require('./routes/usuario');
 const sesionRoutes = require("./routes/sesion");
 const PerfilUsuarioRoutes = require("./routes/crearPerfilUsuario")
 const ProyectosRoutes = require("./routes/proyectos")
+const ConfiguracionesRoutes = require("./routes/configuraciones")
 
 app.use('/Usuario',UsuarioRoutes);
 app.use('/Sesion', sesionRoutes); 
 app.use('/crearPerfilUsuario', PerfilUsuarioRoutes);
 app.use('/proyectos', ProyectosRoutes);
+app.use('/configuraciones', ConfiguracionesRoutes);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
