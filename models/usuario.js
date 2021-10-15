@@ -28,7 +28,7 @@ const Usuario = (sequelize) =>{
             allowNull: false
         },
         contrasena:{
-            type: Sequelize.STRING(50),
+            type: Sequelize.STRING(300),
             allowNull: false
         },
         historialDonaciones:{

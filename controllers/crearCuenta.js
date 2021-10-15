@@ -2,6 +2,7 @@ const usuario = require('../util/database').models.usuario;
 const path = require('path');
 const sequelize = require('../util/database');
 const Sequelize = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 exports.postAgregarUsuario = (req, res)=>{
     console.log(req.body);
@@ -19,7 +20,7 @@ exports.postAgregarUsuario = (req, res)=>{
         fechaNacimiento: "2020-02-07",
         genero: req.body.usuario.genero,
         pais: req.body.usuario.pais,
-        contrasena: req.body.usuario.contrasena,
+        contrasena: bcrypt.hashSync(String(req.body.usuario.contrasena),9),
         historialDonaciones: "2015-08-09"
     }).then(resultado=>{
         console.log("Registro exitoso")
