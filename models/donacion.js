@@ -5,7 +5,8 @@ const Donacion = (sequelize) =>{
         idDonacion:{
             type: Sequelize.INTEGER,
             allowNull: false, 
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         nombreProyectoDonar:{
             type: Sequelize.STRING(50),
