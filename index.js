@@ -36,4 +36,4 @@ sequelize.sync({force:false})
         // Lanza el servidor para escuchar peticiones
         app.listen(puerto, ()=>console.log("Servidor en línea en el puerto 8080")); 
     })
-    .catch(error=>console.log(error));       
+    .catch(error=>console.log(error)); 

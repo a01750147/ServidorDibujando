@@ -7,6 +7,7 @@ const router = express.Router();
 //menu principal
 //router.get('/IniciarSesion', iniciarSesionController.getIniciarSesion);
 router.post('/BuscarUsuario', iniciarSesionController.postBuscarUsuario);
+router.post('/BuscarAdmin', iniciarSesionController.postBuscarAdmin); 
 
 //router.get('/exito', iniciarSesionController.getSesionExitosa);
 
