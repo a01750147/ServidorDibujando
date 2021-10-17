@@ -15,6 +15,7 @@ const PerfilUsuarioRoutes = require("./routes/crearPerfilUsuario")
 const ProyectosRoutes = require("./routes/proyectos")
 const ConfiguracionesRoutes = require("./routes/configuraciones")
 const DonacionRoutes = require("./routes/donacion")
+const NuevaPropuestaRoutes = require("./routes/nuevapropuesta")
 
 app.use('/Usuario',UsuarioRoutes);
 app.use('/Sesion', sesionRoutes); 
@@ -22,6 +23,7 @@ app.use('/crearPerfilUsuario', PerfilUsuarioRoutes);
 app.use('/proyectos', ProyectosRoutes);
 app.use('/configuraciones', ConfiguracionesRoutes);
 app.use('/donacion', DonacionRoutes);
+app.use('/nuevapropuesta', NuevaPropuestaRoutes);
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');

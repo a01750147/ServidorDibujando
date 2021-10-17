@@ -5,14 +5,15 @@ const Nuevapropuesta = (sequelize) =>{
         idNuevaPropuesta:{
             type: Sequelize.INTEGER,
             allowNull: false, 
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
-        nombrePopuesta:{
+        nombreProyecto:{
             type: Sequelize.STRING(50),
             allowNull: false
         },
         descripcion:{
-            type: Sequelize.STRING(250),
+            type: Sequelize.STRING,
             allowNull: false
         }
     })
