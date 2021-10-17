@@ -7,6 +7,4 @@ const router = express.Router()
 //crear perfil
 router.post('/NuevaDonacion',donacionController.postAgregarDonacion);
 
-
-
 module.exports = router; 

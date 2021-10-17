@@ -1,6 +1,7 @@
 // Modelo asociado a la tabla proyectos
 const path = require('path');
 const donacion = require('../util/database').models.donacion;
+const usuario = require('../util/database').models.usuario; 
 const sequelize = require('../util/database');
 const Sequelize = require('sequelize');
 
@@ -12,11 +13,14 @@ exports.postAgregarDonacion = (req, res)=>{
     let year = now.getFullYear();
   
     donacion.create({
-        nombreProyectoDonar: req.body.nombreProyectoDonar,
-        montoDonacion: req.body.montoDonacion,
+        nombreProyectoDonar: req.body.donacion.nombreProyectoDonar,
+        montoDonacion: req.body.donacion.montoDonacion,
         fechaDonacion: year + "-" + month + "-" + date,
+        usuarioCorreo: req.body.donacion.usuarioCorreo,
+        
         
     }).then(resultado=>{
+        
         console.log("Donación exitosa")
         res.send("Donación Exitosa")
     
