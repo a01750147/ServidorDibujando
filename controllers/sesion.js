@@ -48,17 +48,17 @@ exports.postBuscarAdmin = (req, res) => {
             res.send("Lo sentimos: Usuario o contraseña no válidos")
         } else {
             console.log(data[0].contrasena)
-            if (req.body.sesionAdmin.contrasena == String(data[0].contrasena)){
-                res.send("Bienvenido: Usuario válido")
-            } else {
-                res.send("Lo sentimos: Usuario o contraseña no válidos")
-            }
-            /*if (bcrypt.compareSync(String(req.body.sesionAdmin.contrasena), String(data[0].contrasena)) ||
-            !bcrypt.compare(String(req.body.sesionAdmin.contrasena), "null")){
+            /*if (req.body.sesionAdmin.contrasena == String(data[0].contrasena)){
                 res.send("Bienvenido: Usuario válido")
             } else {
                 res.send("Lo sentimos: Usuario o contraseña no válidos")
             }*/
+            if (bcrypt.compareSync(String(req.body.sesionAdmin.contrasena), String(data[0].contrasena)) ||
+            !bcrypt.compare(String(req.body.sesionAdmin.contrasena), "null")){
+                res.send("Bienvenido: Usuario válido")
+            } else {
+                res.send("Lo sentimos: Usuario o contraseña no válidos")
+            }
         }
     }).catch(error => console.log(error))
 }; 

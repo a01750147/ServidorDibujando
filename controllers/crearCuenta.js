@@ -35,26 +35,18 @@ exports.postAgregarUsuario = (req, res)=>{
 
 exports.postAgregarAdmin = (req, res)=>{
     console.log(req.body);
-    /*
-    let now = new Date();
-    let date = ("0" + now.getDate()).slice(-2);
-    let month = ("0" + (now.getMonth() + 1)).slice(-2);
-    let year = now.getFullYear();
-    */
- 
     usuario.create({
-        correo: req.body.usuario.correoElectronico,
-        tipoUsuario: "normal",
-        nombre: req.body.usuario.nombre,
+        correo: req.body.admin.correoElectronico,
+        tipoUsuario: "administrador",
+        nombre: req.body.admin.nombre,
         fechaNacimiento: "2020-02-07",
-        genero: req.body.usuario.genero,
-        pais: req.body.usuario.pais,
-        contrasena: bcrypt.hashSync(String(req.body.usuario.contrasena),9),
+        genero: req.body.admin.genero,
+        pais: "",
+        contrasena: bcrypt.hashSync(String(req.body.admin.contrasena),9),
         historialDonaciones: "2015-08-09"
     }).then(resultado=>{
         console.log("Registro exitoso")
         res.send("Registro Exitoso")
-    //res.redirect("/jugador/confirmacion")
     })
     .catch(error=>{
         console.log(error)
