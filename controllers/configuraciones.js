@@ -8,8 +8,7 @@ const bcrypt = require('bcryptjs');
 exports.BorrarCuenta = (req,res)=>{
     usuario.findOne({
         where: {
-            //correo: req.body.CorreoElectronico
-            correo: 'andrea@outlook.com'
+            correo: req.body.CorreoElectronico
         }
     })
     .then(registro=>{
@@ -19,7 +18,7 @@ exports.BorrarCuenta = (req,res)=>{
         if(registro.length == 0){
             res.send('Correo no válido')
         }else{
-            sequelize.query("Delete From [dbo].[usuario] Where [correo] = 'andrea@outlook.com'",{
+            sequelize.query("Delete From [dbo].[usuario] Where [correo] =" + "'" + req.body.CorreoElectronico + "'",{
                 type: Sequelize.QueryTypes.DELETE
             })
             res.send('Usuario Eliminado')
@@ -31,7 +30,7 @@ exports.BorrarCuenta = (req,res)=>{
 exports.EditarNombre = (req,res)=>{
     usuario.findOne({
         where: {
-            correo: 'andrea@outlook.com'
+            correo: req.body.Nombre.CorreoElectronico
         }
     })
     .then(registro=>{
@@ -41,7 +40,7 @@ exports.EditarNombre = (req,res)=>{
         if(registro.length == 0){
             res.send('Correo no válido')
         }else{
-            sequelize.query("Update [dbo].[usuario] Set [nombre]=" + "'" + req.body.Nombre.NuevoNombre +"'" + "Where [correo] =  'andrea.outlook.com'",{
+            sequelize.query("Update [dbo].[usuario] Set [nombre]=" + "'" + req.body.Nombre.NuevoNombre +"'" + "Where [correo] =" + "'" + req.body.Nombre.CorreoElectronico + "'",{
                 type: Sequelize.QueryTypes.UPDATE
             })
             res.send('Nombre Actualizado')
@@ -51,7 +50,7 @@ exports.EditarNombre = (req,res)=>{
 exports.EditarContrasena = (req,res)=>{
     usuario.findOne({
         where: {
-            correo: 'andrea@outlook.com'
+            correo: req.body.Nombre.CorreoElectronico
         }
     })
     .then(registro=>{
@@ -61,7 +60,7 @@ exports.EditarContrasena = (req,res)=>{
         if(registro.length == 0){
             res.send('Correo no válido')
         }else{
-            sequelize.query("Update [dbo].[usuario] Set [contrasena]=" + "'" + bcrypt.hashSync(String(req.body.Nombre.NuevoNombre),9) +"'" + "Where [correo] =  'andrea.outlook.com'",{
+            sequelize.query("Update [dbo].[usuario] Set [contrasena]=" + "'" + bcrypt.hashSync(String(req.body.Nombre.NuevoNombre),9) +"'" + "Where [correo] ="  + "'" + req.body.Nombre.CorreoElectronico + "'",{
                 type: Sequelize.QueryTypes.UPDATE
             })
             res.send('Contraseña Actualizado')
