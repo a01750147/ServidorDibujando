@@ -5,7 +5,8 @@ const Proyectos = (sequelize) =>{
         idProyectos:{
             type: Sequelize.INTEGER,
             allowNull: false, 
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         nombreProyecto:{
             type: Sequelize.STRING(50),

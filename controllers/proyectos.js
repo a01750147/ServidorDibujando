@@ -1,12 +1,15 @@
 // Modelo asociado a la tabla proyectos
 const path = require('path');
-const Proyecto = require('../util/database').models.proyectos;
+const proyecto = require('../util/database').models.proyectos;
 const Sequelize = require('sequelize');
 
 exports.postAgregarProyecto=(req,res)=>{
     console.log(req.body);
-    Proyecto.create(req.body)
-        .then(resultado=>{
+    proyecto.create({
+        nombreProyecto: req.body.proyecto.nombreProyecto,
+        tipoProyecto: req.body.proyecto.tipoProyecto,
+        descripProyecto: req.body.proyecto.descripcion
+    }).then(resultado=>{
             console.log("Registro exitoso");
             res.send("Registro exitoso");
         }) 

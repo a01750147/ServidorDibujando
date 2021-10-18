@@ -26,7 +26,6 @@ const modelDefiners = [
     require('../models/donacion'),
     require('../models/ayuda'),
     require('../models/preguntasfrecuentes'),
-    //require('../models/proyectousuario'),
     require('../models/proyectos')
     
 ];
