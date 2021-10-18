@@ -14,8 +14,8 @@ exports.postAgregarPropuesta = (req, res)=>{
         
     }).then(resultado=>{
         
-        console.log("Propuesta agregada")
-        res.send("Propuesta agregada")
+        console.log("Propuesta enviada")
+        res.send("Propuesta enviada")
     
     })
     .catch(error=>{
