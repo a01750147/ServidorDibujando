@@ -20,7 +20,7 @@ exports.postAgregarProyecto=(req,res)=>{
 };
 
 exports.getObtenerProyectos = (req,res)=>{
-    Proyecto.findAll({
+    proyecto.findAll({
         where: { 
         }
     }).then(proyectos =>{
