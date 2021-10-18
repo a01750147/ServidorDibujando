@@ -7,15 +7,15 @@ function applyRelations(sequelize){
     const Nuevapropuesta = sequelize.models.nuevapropuesta;
     const Preguntasfrecuentes = sequelize.models.preguntasfrecuentes;
     const Proyectos = sequelize.models.proyectos;
-    const Proyectosusuario = sequelize.models.proyectousuario;
+    //const Proyectosusuario = sequelize.models.proyectousuario;
     const Usuario = sequelize.models.usuario;
     
     //Relaciones
     Usuario.hasMany(Nuevapropuesta);
     Nuevapropuesta.belongsTo(Usuario);
 
-    Usuario.hasMany(Proyectosusuario);
-    Proyectosusuario.belongsTo(Usuario);
+    /*Usuario.hasMany(Proyectosusuario);
+    Proyectosusuario.belongsTo(Usuario);*/
 
     Usuario.hasMany(Donacion);
     Donacion.belongsTo(Usuario);
@@ -29,8 +29,11 @@ function applyRelations(sequelize){
     Preguntasfrecuentes.hasMany(Ayuda);
     Ayuda.belongsTo(Preguntasfrecuentes);
 
-    Proyectos.hasMany(Proyectosusuario);
-    Proyectosusuario.belongsTo(Proyectos);
+    /*Proyectos.hasMany(Proyectosusuario);
+    Proyectosusuario.belongsTo(Proyectos);*/
+
+    Proyectos.hasMany(Donacion);
+    Donacion.belongsTo(Proyectos);
 
 }
 

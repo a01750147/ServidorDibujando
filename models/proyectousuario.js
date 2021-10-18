@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+/*const Sequelize = require('sequelize');
 
 const Proyectousuario = (sequelize) =>{
     sequelize.define('proyectousuario',{
@@ -17,4 +17,4 @@ const Proyectousuario = (sequelize) =>{
         }
     })
 }
-module.exports = Proyectousuario;
+module.exports = Proyectousuario;*/

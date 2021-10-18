@@ -17,11 +17,11 @@ exports.postAgregarDonacion = (req, res)=>{
         montoDonacion: req.body.donacion.montoDonacion,
         fechaDonacion: year + "-" + month + "-" + date,
         usuarioCorreo: req.body.donacion.usuarioCorreo,
-        
+        proyectoIdProyectos: req.body.donacion.proyectoIdProyectos
         
     }).then(resultado=>{
         
-        console.log("Donación exitosa")
+        console.log("Donación Exitosa")
         res.send("Donación Exitosa")
     
     })
