@@ -11,17 +11,13 @@ exports.postAgregarDonacion = (req, res)=>{
     let date = ("0" + now.getDate()).slice(-2);
     let month = ("0" + (now.getMonth() + 1)).slice(-2);
     let year = now.getFullYear();
-    let idproy = (sequelize.query("select [idProyectos] from [dbo].[proyectos] where [nombreProyecto] = '"+ req.body.donacion.nombreProyectoDonar + "'",{
-        type:Sequelize.QueryTypes.SELECT
-    })).INTEGER;
   
     donacion.create({
         nombreProyectoDonar: req.body.donacion.nombreProyectoDonar,
         montoDonacion: req.body.donacion.montoDonacion,
         fechaDonacion: year + "-" + month + "-" + date,
         usuarioCorreo: req.body.donacion.usuarioCorreo,
-        //proyectoIdProyectos: req.body.donacion.proyectoIdProyectos
-        proyectoIdProyectos: idproy
+        proyectoIdProyectos: req.body.donacion.proyectoIdProyectos
         
     }).then(resultado=>{
         
