@@ -32,7 +32,7 @@ app.use('/nuevapropuesta', NuevaPropuestaRoutes);
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
-let puerto=8080;
+let puerto=443;
 /* Establece vínculo entre la conexión del servidor y la BD
 sequelize.sync({force:false})
     .then(resultado=>{
@@ -52,7 +52,7 @@ sequelize.sync({force:false})
             key: fs.readFileSync('my_cert.key'),
             cert: fs.readFileSync('my_cert.crt')
         }, app).listen(puerto, function(){
-            console.log("Servidor en línea en el puerto 8080")
+            console.log("Servidor en línea en el puerto 443")
         }); 
     })
     .catch(error=>console.log(error)); 
