@@ -3,6 +3,10 @@ const path = require("path")
 const express = require('express');
 const sequelize = require('./util/database') 
 
+// Para https 
+const fs = require('fs'); 
+const https = require('https'); 
+
 const app=express()
 
 app.use(express.static(path.join(__dirname,"public"))); 
@@ -29,11 +33,26 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 let puerto=8080;
-// Establece vínculo entre la conexión del servidor y la BD
+/* Establece vínculo entre la conexión del servidor y la BD
 sequelize.sync({force:false})
     .then(resultado=>{
         console.log("Conexión exitosa");
         // Lanza el servidor para escuchar peticiones
         app.listen(puerto, ()=>console.log("Servidor en línea en el puerto 8080")); 
+    })
+    .catch(error=>console.log(error)); */
+
+// Establece vínculo entre la conexión del servidor y la BD
+sequelize.sync({force:false})
+    .then(resultado=>{
+        console.log("Conexión exitosa");
+        // Lanza el servidor para escuchar peticiones
+        //app.listen(puerto, ()=>console.log("Servidor en línea en el puerto 8080")); 
+        https.createServer({
+            key: fs.readFileSync('my_cert.key'),
+            cert: fs.readFileSync('my_cert.crt')
+        }, app).listen(puerto, function(){
+            console.log("Servidor en línea en el puerto 8080")
+        }); 
     })
     .catch(error=>console.log(error)); 
