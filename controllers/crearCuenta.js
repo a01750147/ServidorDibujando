@@ -17,7 +17,7 @@ exports.postAgregarUsuario = (req, res)=>{
         correo: req.body.usuario.correoElectronico,
         tipoUsuario: "normal",
         nombre: req.body.usuario.nombre,
-        fechaNacimiento: "2020-02-07",
+        fechaNacimiento: req.body.usuario.fechaNacimiento,
         genero: req.body.usuario.genero,
         pais: req.body.usuario.pais,
         contrasena: bcrypt.hashSync(String(req.body.usuario.contrasena),9),
