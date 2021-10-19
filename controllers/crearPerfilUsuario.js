@@ -64,3 +64,12 @@ exports.perfilDonaciones = (req,res)=>{
         res.send(error)
     })
 };
+
+exports.ListaUsuarios = (req,res)=>{
+    sequelize.query("SELECT u.nombre, d.usuarioCorreo, sum(d.montoDonacion) as 'montoTotal', d.nombreProyectoDonar from usuario u , donacion d where d.usuarioCorreo = u.correo group by u.nombre, d.usuarioCorreo,  d.nombreProyectoDonar",{
+        type: Sequelize.QueryTypes.SELECT
+    }).then(resultado =>{
+        console.log(resultado)
+        res.send(resultado) 
+    })
+};

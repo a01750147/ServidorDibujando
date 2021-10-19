@@ -11,4 +11,8 @@ router.post('/PerfilUsuario',UsuarioController.perfilUsuario);
 router.post('/EnviarDonaciones',UsuarioController.perfilDonaciones);
 
 
+//Ver usuarios
+router.post('/VerUsuarios',UsuarioController.ListaUsuarios);
+
+
 module.exports = router; 
