@@ -39,7 +39,7 @@ exports.postAgregarAdmin = (req, res)=>{
         correo: req.body.admin.correoElectronico,
         tipoUsuario: "administrador",
         nombre: req.body.admin.nombre,
-        fechaNacimiento: "2020-02-07",
+        fechaNacimiento: req.body.admin.fechaNacimiento,
         genero: req.body.admin.genero,
         pais: "",
         contrasena: bcrypt.hashSync(String(req.body.admin.contrasena),9),
