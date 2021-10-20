@@ -30,10 +30,6 @@ const Usuario = (sequelize) =>{
         contrasena:{
             type: Sequelize.STRING(300),
             allowNull: false
-        },
-        historialDonaciones:{
-            type: Sequelize.STRING(100),
-            allowNull: false
         }
     })
 }

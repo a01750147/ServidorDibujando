@@ -43,7 +43,7 @@ sequelize.sync({force:false})
     .catch(error=>console.log(error)); */
 
 // Establece vínculo entre la conexión del servidor y la BD
-sequelize.sync({force:false})
+sequelize.sync({force:true})
     .then(resultado=>{
         console.log("Conexión exitosa");
         // Lanza el servidor para escuchar peticiones

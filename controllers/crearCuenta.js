@@ -20,8 +20,7 @@ exports.postAgregarUsuario = (req, res)=>{
         fechaNacimiento: req.body.usuario.fechaNacimiento,
         genero: req.body.usuario.genero,
         pais: req.body.usuario.pais,
-        contrasena: bcrypt.hashSync(String(req.body.usuario.contrasena),9),
-        historialDonaciones: "2015-08-09"
+        contrasena: bcrypt.hashSync(String(req.body.usuario.contrasena),9)
     }).then(resultado=>{
         console.log("Registro exitoso")
         res.send("Registro Exitoso")
@@ -42,8 +41,7 @@ exports.postAgregarAdmin = (req, res)=>{
         fechaNacimiento: req.body.admin.fechaNacimiento,
         genero: req.body.admin.genero,
         pais: "",
-        contrasena: bcrypt.hashSync(String(req.body.admin.contrasena),9),
-        historialDonaciones: "2015-08-09"
+        contrasena: bcrypt.hashSync(String(req.body.admin.contrasena),9)
     }).then(resultado=>{
         console.log("Registro exitoso")
         res.send("Registro Exitoso")
