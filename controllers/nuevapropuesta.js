@@ -23,3 +23,25 @@ exports.postAgregarPropuesta = (req, res)=>{
         res.send("Error en Propuesta");
     }); 
 };
+
+
+exports.getObtenerPropuestas = (req,res)=>{
+    nuevapropuesta.findAll({
+        where: { 
+        }
+    }).then(resultado =>{
+        if(resultado.length == 0){
+            res.send('No existen propuestas')
+        }else{
+            var data=[];
+            resultado.forEach( resultado => {
+                data.push(resultado.dataValues);
+            });
+            console.log(data)
+            res.send(data)
+        }
+    }).catch(error =>{
+        console.log(error)
+        res.send(error)
+    })
+};

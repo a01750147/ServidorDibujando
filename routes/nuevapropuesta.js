@@ -7,4 +7,7 @@ const router = express.Router()
 //crear propuesta
 router.post('/NuevaPropuesta',nuevapropuestaController.postAgregarPropuesta);
 
+//Ver propuesta
+router.post('/VerPropuestas',nuevapropuestaController.getObtenerPropuestas);
+
 module.exports = router; 

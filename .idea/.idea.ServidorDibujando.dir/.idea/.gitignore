@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/.idea.ServidorDibujando.iml
+/modules.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../:\arijo\OneDrive\Documentos\ITC\5TO SEMESTRE\Integracion de seguridad informatica en redes y sistemas de software\Reto\ServidorDibujando\.idea\.idea.ServidorDibujando.dir\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
